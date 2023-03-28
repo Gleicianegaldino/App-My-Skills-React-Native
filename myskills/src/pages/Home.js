@@ -4,9 +4,11 @@ import {  View,
           Text, 
           StyleSheet, 
           TextInput, 
-          Platform,
-          TouchableOpacity 
+          Platform, 
         } from 'react-native';
+
+import { Button } from '../components/Button';
+import { SkillCard } from '../components/SkillCard';
 
 
 export function Home() {
@@ -32,12 +34,8 @@ export function Home() {
                 onChangeText={setNewSkill}
             />
 
-            <TouchableOpacity style = { styles.button } 
-            activeOpacity = {.7}
-            onPress = { handleAddNewSkill }
-            >
-                <text style={ styles.buttonText }>Add</text>
-            </TouchableOpacity>
+            <Button/>
+
 
             <Text style = {[ styles.title, { marginVertical: 50}]}>
               My Skills
@@ -45,11 +43,8 @@ export function Home() {
 
             {
               mySkills.map( skill => (
-              <TouchableOpacity key={skill} style = { styles.buttonSkill}>
-                <Text style = { styles.textSkill }>
-                    { skill }
-                </Text>
-            </TouchableOpacity>
+              
+                <SkillCard/>
             ))
             }
           
@@ -85,33 +80,5 @@ const styles = StyleSheet.create({
     borderRadius: 7
   },
 
-  button: {
-    backgroundColor: '#a370f7',
-    padding: 15,
-    borderRadius: 7,
-    alignItems: 'center',
-    marginTop: 20
-  },
-
-  buttonText: {
-    color: '#fff',
-    fontSize: 17,
-    fontWeight: 'bold'
-  },
-
-  buttonSkill: {
-    backgroundColor: '#1f1e25',
-    padding: 15,
-    borderRadius: 50,
-    alignItems: 'center',
-    marginVertical: 10
-
-  },
-
-  textSkill: {
-    color: '#fff',
-    fontSize: 22,
-    fontWeight: 'bold'
-  }
 
 });
