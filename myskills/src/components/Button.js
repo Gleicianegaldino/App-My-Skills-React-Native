@@ -5,13 +5,13 @@ StyleSheet
 
 
 
-export function Button(){
+export function Button({ onPress }){
 
    return(
 
     <TouchableOpacity style = { styles.button } 
     activeOpacity = {.7}
-    //onPress = { handleAddNewSkill }
+    onPress = { onPress }
      >
         <text style={ styles.buttonText }>Add</text>
     </TouchableOpacity>
